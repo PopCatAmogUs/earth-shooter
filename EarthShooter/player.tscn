@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://1mnmxfevvvbp"]
+
+[ext_resource type="Script" path="res://earth.gd" id="1_bq5li"]
+[ext_resource type="Texture2D" uid="uid://b7b857y8wjijf" path="res://Earth.png" id="1_wgfde"]
+[ext_resource type="Texture2D" uid="uid://dtvc3xtcvhbnu" path="res://Gun.png" id="3_n8dea"]
+[ext_resource type="Script" path="res://Gun.gd" id="4_im5ty"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ywy2u"]
+radius = 714.253
+
+[node name="player" type="CharacterBody2D"]
+position = Vector2(1280, 720)
+script = ExtResource("1_bq5li")
+
+[node name="Earth" type="Sprite2D" parent="."]
+texture = ExtResource("1_wgfde")
+
+[node name="Gun" type="Sprite2D" parent="Earth"]
+position = Vector2(834, 198)
+scale = Vector2(0.77598, 0.77598)
+texture = ExtResource("3_n8dea")
+script = ExtResource("4_im5ty")
+
+[node name="Marker2D" type="Marker2D" parent="Earth/Gun"]
+position = Vector2(813.165, -3898.3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ywy2u")
